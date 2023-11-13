@@ -6,4 +6,16 @@
     </style>
 
     <style name="Theme.TriumphTree" parent="Base.Theme.TriumphTree" />
+
+    <style name="NewGoal" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#FF6200EE</item>
+        <item name="colorPrimaryVariant">#FF3700B3</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#FF03DAC5</item>
+        <item name="colorSecondaryVariant">#FF018786</item>
+        <item name="colorOnSecondary">@color/black</item>
+    </style>
 </resources>
