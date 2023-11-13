@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TriumphTree</string>
+    <string name="pine">Pine</string>
+    <string name="birch">Birch</string>
+    <string name="maple">Maple</string>
+    <string name="oak">Oak</string>
 </resources>
