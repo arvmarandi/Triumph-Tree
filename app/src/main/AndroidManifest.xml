@@ -15,7 +15,8 @@
         <activity
             android:name=".NewGoal"
             android:exported="false"
-            android:theme="@style/NewGoal"/>
+            android:theme="@style/NewGoal"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
