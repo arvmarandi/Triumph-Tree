@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">TriumphTree</string>
+    <string name="new_goal">New Goal</string>
+    <string name="name">Name</string>
+    <string name="finish">Finish</string>
+    <string name="description">Description</string>
+    <string name="notification_frequency">Notification Frequency</string>
+    <string name="connections">Connections</string>
+    <string-array name="frequency_array">
+        <item>Every six hours</item>
+        <item>Daily</item>
+        <item>Every other day</item>
+        <item>Weekly</item>
+    </string-array>
 </resources>
