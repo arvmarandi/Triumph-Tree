@@ -13,6 +13,10 @@
         android:theme="@style/Theme.TriumphTree"
         tools:targetApi="31">
         <activity
+            android:name=".SelectATree"
+            android:exported="false" 
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".GoalSettings"
             android:exported="false"
             android:parentActivityName=".MainActivity"
