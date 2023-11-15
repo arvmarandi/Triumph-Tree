@@ -10,6 +10,8 @@
     <string name="apply_changes">Apply Changes</string>
     <string name="off">Off</string>
     <string name="reminders">Reminders</string>
+    <string name="log_history">Log History</string>
+    <string name="completion_threshold">Completion Threshold</string>
     <string-array name="frequency_array">
         <item>Every six hours</item>
         <item>Daily</item>

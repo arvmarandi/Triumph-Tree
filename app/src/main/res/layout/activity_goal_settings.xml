@@ -15,7 +15,7 @@
         android:layout_marginTop="70dp"/>
 
     <Button
-        android:id="@+id/finish_button"
+        android:id="@+id/apply_changes_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="230dp"
@@ -73,5 +73,64 @@
         android:layout_marginHorizontal="43dp"
         android:layout_marginTop="370dp"
         android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/completion_threshold"
+        style="@style/RegularText"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="400dp"/>
+    
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="250dp"
+        android:layout_marginTop="395dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_history"
+        style="@style/RegularText"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="480dp"/>
+
+    <Button
+        android:id="@+id/log_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="History.csv"
+        android:layout_marginHorizontal="150dp"
+        android:layout_marginTop="480dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/connections"
+        style="@style/RegularText"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="560dp"/>
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/fitbit"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="600dp"/>
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/strava"
+        android:layout_marginHorizontal="160dp"
+        android:layout_marginTop="600dp"/>
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/duolingo"
+        android:layout_marginHorizontal="280dp"
+        android:layout_marginTop="600dp"/>
 
 </RelativeLayout>

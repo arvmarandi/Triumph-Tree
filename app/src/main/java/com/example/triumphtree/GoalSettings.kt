@@ -1,9 +1,11 @@
 package com.example.triumphtree
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.Spinner
 import android.widget.Toast
@@ -16,6 +18,7 @@ class GoalSettings : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goal_settings)
 
+        val changesButton = findViewById<Button>(R.id.apply_changes_button)
         val reminderSwitch = findViewById<SwitchCompat>(R.id.on_off_switch)
         val frequencySpinner = findViewById<Spinner>(R.id.notification_frequency)
         val adapter = ArrayAdapter.createFromResource(
@@ -32,10 +35,17 @@ class GoalSettings : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
+        changesButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         reminderSwitch.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { _, isChecked -> // Show/hide the spinner based on the switch state
             if (isChecked) {
+                reminderSwitch.text = "On"
                 frequencySpinner.visibility = View.VISIBLE
             } else {
+                reminderSwitch.text = "Off"
                 frequencySpinner.visibility = View.GONE
             }
         })
