@@ -4,4 +4,22 @@
     <string name="birch">Birch</string>
     <string name="maple">Maple</string>
     <string name="oak">Oak</string>
+    <string name="new_goal">New Goal</string>
+    <string name="name">Name</string>
+    <string name="finish">Finish</string>
+    <string name="description">Description</string>
+    <string name="upload_frequency">Upload Frequency</string>
+    <string name="connections">Connections</string>
+    <string name="goal_settings">Goal Settings</string>
+    <string name="apply_changes">Apply Changes</string>
+    <string name="off">Off</string>
+    <string name="reminders">Reminders</string>
+    <string name="log_history">Log History</string>
+    <string name="completion_threshold">Completion Threshold</string>
+    <string-array name="frequency_array">
+        <item>Every six hours</item>
+        <item>Daily</item>
+        <item>Every other day</item>
+        <item>Weekly</item>
+    </string-array>
 </resources>
