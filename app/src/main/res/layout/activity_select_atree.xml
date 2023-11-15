@@ -8,13 +8,25 @@
     android:gravity="center_vertical"
     >
 
+    <TextView
+        android:id="@+id/select_tree_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Pick a Tree"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/_36sp"
+        android:textSize="48sp"/>
+
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="2"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        android:padding="@dimen/_36sp"
+        android:layout_below="@+id/select_tree_text">
 
         <TextView
             android:id="@+id/pine_text_view"
