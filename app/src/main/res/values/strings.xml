@@ -6,6 +6,10 @@
     <string name="description">Description</string>
     <string name="upload_frequency">Upload Frequency</string>
     <string name="connections">Connections</string>
+    <string name="goal_settings">Goal Settings</string>
+    <string name="apply_changes">Apply Changes</string>
+    <string name="off">Off</string>
+    <string name="reminders">Reminders</string>
     <string-array name="frequency_array">
         <item>Every six hours</item>
         <item>Daily</item>
