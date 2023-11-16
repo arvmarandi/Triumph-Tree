@@ -34,5 +34,11 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.app_bar, menu)
         return true
+
+//        val settingsButton = findViewById<Button>(R.id.settings_button)
+//        settingsButton.setOnClickListener {
+//            val intent = Intent(this, SettingsMenu::class.java)
+//            startActivity(intent)
+//        }
     }
 }

@@ -8,19 +8,25 @@
 
     <include layout="@layout/app_bar_layout"/>
 
-    <Button
-        android:id="@+id/new_goal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Goal"
-        android:layout_centerVertical="true"
-        android:layout_margin="150dp">
-    </Button>
 
-    <Button
-        android:id="@+id/goal_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Goal Settings"
-        android:layout_centerVertical="true"/>
+        <Button
+            android:id="@+id/new_goal"
+            android:text="New Goal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="75dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            />
+
+        <Button
+            android:id="@+id/goal_settings"
+            android:text="Goal Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"/>
+
 </RelativeLayout>
