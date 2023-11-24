@@ -2,6 +2,7 @@ package com.example.triumphtree
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
@@ -26,6 +27,10 @@ class GoalList : AppCompatActivity(), OnGoalAddedListener {
         setContentView(R.layout.activity_goal_list)
 
         listView = findViewById(R.id.goalListView)
+        /*val homePage = findViewById<Button>(R.id.list_to_home)
+        homePage.setOnClickListener{
+
+        }*/
 
         // Read goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences()
