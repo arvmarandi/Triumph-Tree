@@ -10,18 +10,31 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 
+interface OnGoalAddedListener {
+    fun onGoalAdded(goal: GoalModel)
+}
+
+
 class NewGoalFragment : Fragment() {
+    private var onGoalAddedListener: OnGoalAddedListener? = null
 
     // Define your goals list
     private val goalsList = mutableListOf<GoalModel>()
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnGoalAddedListener) {
+            onGoalAddedListener = context
+        } else {
+            throw ClassCastException("$context must implement OnGoalAddedListener")
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.activity_new_goal, container, false)
 
-        // ... existing code ...
 
         val finishButton = view.findViewById<Button>(R.id.finish_button)
         finishButton.setOnClickListener {
@@ -43,6 +56,9 @@ class NewGoalFragment : Fragment() {
 
             // Save the updated list to SharedPreferences
             saveGoalsToSharedPreferences()
+
+            // Notify the listener (in this case, the GoalList activity) that a new goal is added
+            onGoalAddedListener?.onGoalAdded(newGoal)
 
             // Navigate back to the main activity
             val intent = Intent(requireContext(), MainActivity::class.java)
