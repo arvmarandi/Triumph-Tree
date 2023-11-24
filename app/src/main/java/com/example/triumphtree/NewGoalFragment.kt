@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 
@@ -17,6 +18,8 @@ interface OnGoalAddedListener {
 
 class NewGoalFragment : Fragment() {
     private var onGoalAddedListener: OnGoalAddedListener? = null
+    private lateinit var goalsContainer: LinearLayout
+    private lateinit var finishButton: Button
 
     // Define your goals list
     private val goalsList = mutableListOf<GoalModel>()
@@ -35,6 +38,14 @@ class NewGoalFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.activity_new_goal, container, false)
 
+
+        goalsContainer = view.findViewById(R.id.goalsContainer)
+        finishButton = view.findViewById(R.id.finish_button)
+
+        for (goal in goalsList) {
+            val goalView = createGoalView(goal)
+            goalsContainer.addView(goalView)
+        }
 
         val finishButton = view.findViewById<Button>(R.id.finish_button)
         finishButton.setOnClickListener {
@@ -67,6 +78,16 @@ class NewGoalFragment : Fragment() {
 
 
         return view
+    }
+
+    private fun createGoalView(goal: GoalModel): View {
+        val goalView =
+            LayoutInflater.from(requireContext()).inflate(R.layout.goal_item, null)
+
+        // Customize goalView based on the goal model
+        // Example: goalView.findViewById<TextView>(R.id.goalNameTextView).text = goal.name
+
+        return goalView
     }
 
     private fun saveGoalsToSharedPreferences() {
