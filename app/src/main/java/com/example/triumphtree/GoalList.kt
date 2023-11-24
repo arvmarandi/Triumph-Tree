@@ -16,33 +16,58 @@ import com.google.gson.Gson
     a data class with the information from the NewGoal activity, saves it in the shared preferences
     for later loading.
  */
-class GoalList : AppCompatActivity() {
+class GoalList : AppCompatActivity(), OnGoalAddedListener {
+
+    private lateinit var listView: ListView
+    private lateinit var arrayAdapter: ArrayAdapter<GoalModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goal_list)
 
+        listView = findViewById(R.id.goalListView)
+
         // Read goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences()
 
-        // Display the goals in a ListView
-        val listView: ListView = findViewById(R.id.goalListView)
-
         // Create an array adapter to display the goals in the ListView
-        val arrayAdapter = ArrayAdapter(
+        arrayAdapter = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
-            goalsList.map { it.name }
+            goalsList
         )
 
         listView.adapter = arrayAdapter
 
-        // You can add a click listener to the list items if you want to perform some action when an item is clicked
+        // Set the OnItemClickListener for the ListView
         listView.setOnItemClickListener { _, _, position, _ ->
             val selectedGoal = goalsList[position]
             // Handle click on the selected goal, show details, etc.
         }
+    }
 
+    override fun onGoalAdded(goal: GoalModel) {
+        // Add the new goal to the list
+        (listView.adapter as? ArrayAdapter<GoalModel>)?.add(goal)
+        // Save the updated list to SharedPreferences
+        saveGoalsToSharedPreferences()
+    }
+
+    private fun saveGoalsToSharedPreferences() {
+        val sharedPreferences = getSharedPreferences("Goals", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        // Convert the goals list to JSON using Gson
+        val goalsList = mutableListOf<GoalModel>()
+        for (i in 0 until arrayAdapter.count) {
+            goalsList.add(arrayAdapter.getItem(i)!!)
+        }
+
+        val jsonGoalsList = Gson().toJson(goalsList)
+
+        // Save the JSON string to SharedPreferences
+        editor.putString("GoalsList", jsonGoalsList)
+        editor.apply()
     }
 
 
