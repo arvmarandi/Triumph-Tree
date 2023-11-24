@@ -41,14 +41,15 @@ class NewGoalFragment : Fragment() {
 
 
         goalsContainer = view.findViewById(R.id.goalsContainer)
-        finishButton = view.findViewById(R.id.finish_button)
 
         for (goal in goalsList) {
             val goalView = createGoalView(goal)
             goalsContainer.addView(goalView)
         }
 
-        val finishButton = view.findViewById<Button>(R.id.finish_button)
+        // This view is caused so that I can have data passed around between the activity and here
+        val newGoal = inflater.inflate(R.layout.activity_new_goal, container, false)
+        val finishButton = newGoal.findViewById<Button>(R.id.finish_button)
         finishButton.setOnClickListener {
 
             //TODO: Change the elements in goalName, Details, and Emblem

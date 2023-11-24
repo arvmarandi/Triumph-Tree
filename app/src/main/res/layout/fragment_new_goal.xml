@@ -20,10 +20,4 @@
             android:padding="16dp"/>
     </ScrollView>
 
-    <Button
-        android:id="@+id/finish_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Finish"
-        android:layout_margin="16dp"/>
 </LinearLayout>
