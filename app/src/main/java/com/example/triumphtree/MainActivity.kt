@@ -15,20 +15,20 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.app_bar)
         setSupportActionBar(toolbar)
 
-        val button = findViewById<Button>(R.id.new_goal)
-        button.setOnClickListener {
+        val newGoal = findViewById<Button>(R.id.new_goal)
+        newGoal.setOnClickListener {
             val intent = Intent(this, NewGoal::class.java)
             startActivity(intent)
         }
 
-        val button2 = findViewById<Button>(R.id.goal_settings)
-        button2.setOnClickListener {
+        val goalSettings = findViewById<Button>(R.id.goal_settings)
+        goalSettings.setOnClickListener {
             val intent = Intent(this, GoalSettings::class.java)
             startActivity(intent)
         }
 
-        val button3 = findViewById<Button>(R.id.goal_list)
-        button3.setOnClickListener{
+        val goalList = findViewById<Button>(R.id.goal_list)
+        goalList.setOnClickListener{
             val intent = Intent(this, GoalList::class.java)
             startActivity(intent)
         }
