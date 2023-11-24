@@ -17,7 +17,7 @@
 
     <Button
             android:id="@+id/new_goal"
-            android:text="New Goal"
+            android:text="@string/new_goal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="75dp"
@@ -27,12 +27,20 @@
 
         <Button
             android:id="@+id/goal_settings"
-            android:text="Goal Settings"
+            android:text="@string/goal_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"/>
+
+    <Button
+        android:id="@+id/goal_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_alignBaseline="@+id/goal_settings"
+        android:text="@string/goal_list"/>
 
 </RelativeLayout>
