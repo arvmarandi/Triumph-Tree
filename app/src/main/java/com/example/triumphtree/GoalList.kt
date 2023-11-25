@@ -37,8 +37,6 @@ class GoalList : AppCompatActivity(){
         // Read goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences()
 
-        //Populate the list
-        fillGoals(goalsList)
 
         // Create an array adapter to display the goals in the ListView
         arrayAdapter = ArrayAdapter(
@@ -90,28 +88,6 @@ class GoalList : AppCompatActivity(){
         // Convert the JSON string back to a list of GoalModel using Gson
         val type = object : TypeToken<List<GoalModel>>() {}.type
         return Gson().fromJson(jsonGoalsList, type) ?: emptyList()
-    }
-
-    private fun fillGoals(goals: List<GoalModel>)
-    {
-        Log.d(GL2, "fillGoals")
-
-        val layout = findViewById<ListView>(R.id.goalListView)
-        for(i in goals.indices)
-        {
-            //Create TextViews Programmatically
-            val textView = TextView(this)
-
-            //setting height and width
-            textView.layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT)
-
-            //Setting the text to the name
-            textView.setText(goals.get(i)?.name)
-
-            layout?.addView(textView)
-        }
     }
 
     override fun onPause() {

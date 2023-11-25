@@ -3,6 +3,7 @@ package com.example.triumphtree
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -13,6 +14,7 @@ import android.widget.Toast
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 
+const val NG1 = "NewGoal"
 class NewGoal : AppCompatActivity() {
 
     private lateinit var nameEditText: EditText
@@ -20,6 +22,8 @@ class NewGoal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_goal)
+
+        Log.d(NG1, "onCreate")
 
         val finishButton = findViewById<Button>(R.id.finish_button)
         val frequencySpinner = findViewById<Spinner>(R.id.frequency_button)
