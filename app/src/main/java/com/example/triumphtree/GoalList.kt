@@ -1,9 +1,13 @@
 package com.example.triumphtree
 
 import android.os.Bundle
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.ListView
+import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
@@ -31,6 +35,9 @@ class GoalList : AppCompatActivity(){
 
         // Read goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences()
+
+        //Populate the list
+        fillGoals(goalsList)
 
         // Create an array adapter to display the goals in the ListView
         arrayAdapter = ArrayAdapter(
@@ -77,5 +84,38 @@ class GoalList : AppCompatActivity(){
         // Convert the JSON string back to a list of GoalModel using Gson
         val type = object : TypeToken<List<GoalModel>>() {}.type
         return Gson().fromJson(jsonGoalsList, type) ?: emptyList()
+    }
+
+    private fun fillGoals(goals: List<GoalModel>)
+    {
+        val layout = findViewById<ListView>(R.id.goalListView)
+        for(i in goals.indices)
+        {
+            //Create TextViews Programmatically
+            val textView = TextView(this)
+
+            //setting height and width
+            textView.layoutParams = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.MATCH_PARENT)
+
+            //Setting the text to the name
+            textView.setText(goals.get(i)?.name)
+
+            layout?.addView(textView)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        saveGoalsToSharedPreferences()
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 }
