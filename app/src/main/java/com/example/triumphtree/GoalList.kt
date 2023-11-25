@@ -1,6 +1,7 @@
 package com.example.triumphtree
 
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -17,11 +18,10 @@ import com.google.gson.Gson
 /*
     GoalList activity is a dynamically growing list that will populate as the user is putting in
     goals. It saves goals and their details into a data class and throws them into a JSON and then
-    reads them to populate the list in activity_goal_list.xml. This is done through a factory model
-    where a new goal is made from the NewGoal activity, which then makes the NewGoalFragment.kt make
-    a data class with the information from the NewGoal activity, saves it in the shared preferences
-    for later loading.
+    reads them to populate the list in activity_goal_list.xml.
  */
+const val GL1 = "GoalList LifeCycle"
+const val GL2 = "GoalList SharedPref"
 class GoalList : AppCompatActivity(){
 
     private lateinit var listView: ListView
@@ -30,6 +30,7 @@ class GoalList : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goal_list)
+        Log.d(GL1, "onCreate")
 
         listView = findViewById(R.id.goalListView)
 
@@ -56,7 +57,10 @@ class GoalList : AppCompatActivity(){
     }
 
 
-    private fun saveGoalsToSharedPreferences() {
+    private fun saveGoalsToSharedPreferences()
+    {
+        Log.d(GL2, "saveGoalsToSharedPreferences")
+
         val sharedPreferences = getSharedPreferences("Goals", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
@@ -74,7 +78,9 @@ class GoalList : AppCompatActivity(){
     }
 
 
-    private fun readGoalsFromSharedPreferences(): List<GoalModel> {
+    private fun readGoalsFromSharedPreferences(): List<GoalModel>
+    {
+        Log.d(GL2, "readGoalsFromPreferences")
         val sharedPreferences =
             getSharedPreferences("Goals", MODE_PRIVATE)
 
@@ -88,6 +94,8 @@ class GoalList : AppCompatActivity(){
 
     private fun fillGoals(goals: List<GoalModel>)
     {
+        Log.d(GL2, "fillGoals")
+
         val layout = findViewById<ListView>(R.id.goalListView)
         for(i in goals.indices)
         {
@@ -108,14 +116,17 @@ class GoalList : AppCompatActivity(){
 
     override fun onPause() {
         super.onPause()
+        Log.d(GL1, "onPause")
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        Log.d(GL1, "onDestroy")
         saveGoalsToSharedPreferences()
     }
 
     override fun onResume() {
         super.onResume()
+        Log.d(GL1, "onResume")
     }
 }
