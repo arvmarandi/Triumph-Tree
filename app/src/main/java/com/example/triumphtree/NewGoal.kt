@@ -25,6 +25,7 @@ class NewGoal : AppCompatActivity() {
 
 
         finishButton.setOnClickListener {
+
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -39,4 +40,10 @@ class NewGoal : AppCompatActivity() {
         }
 
     }
+
+    private fun saveGoal()
+    {
+
+    }
+
 }
