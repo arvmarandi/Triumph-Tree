@@ -18,7 +18,7 @@ import com.google.gson.Gson
     a data class with the information from the NewGoal activity, saves it in the shared preferences
     for later loading.
  */
-class GoalList : AppCompatActivity(), OnGoalAddedListener {
+class GoalList : AppCompatActivity(){
 
     private lateinit var listView: ListView
     private lateinit var arrayAdapter: ArrayAdapter<GoalModel>
@@ -28,10 +28,6 @@ class GoalList : AppCompatActivity(), OnGoalAddedListener {
         setContentView(R.layout.activity_goal_list)
 
         listView = findViewById(R.id.goalListView)
-
-        /*val toolbar: Toolbar = findViewById(R.id.app_bar)
-        setSupportActionBar(toolbar)*/
-
 
         // Read goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences()
@@ -52,12 +48,6 @@ class GoalList : AppCompatActivity(), OnGoalAddedListener {
         }
     }
 
-    override fun onGoalAdded(goal: GoalModel) {
-        // Add the new goal to the list
-        (listView.adapter as? ArrayAdapter<GoalModel>)?.add(goal)
-        // Save the updated list to SharedPreferences
-        saveGoalsToSharedPreferences()
-    }
 
     private fun saveGoalsToSharedPreferences() {
         val sharedPreferences = getSharedPreferences("Goals", MODE_PRIVATE)
