@@ -51,6 +51,7 @@ class GoalList : AppCompatActivity(){
         listView.setOnItemClickListener { _, _, position, _ ->
             val selectedGoal = goalsList[position]
             // Handle click on the selected goal, show details, etc.
+
         }
     }
 
