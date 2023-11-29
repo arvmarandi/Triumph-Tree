@@ -55,17 +55,31 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/upload_frequency"
+        android:text="@string/completion_threshold"
         style="@style/RegularText"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="300dp"/>
+
+    <EditText
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="250dp"
+        android:layout_marginTop="295dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_frequency"
+        style="@style/RegularText"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="390dp"/>
 
     <Spinner
         android:id="@+id/frequency_button"
         android:layout_width="240dp"
         android:layout_height="30dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="340dp"/>
+        android:layout_marginTop="430dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,15 +87,15 @@
         android:text="@string/connections"
         style="@style/RegularText"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="390dp"/>
+        android:layout_marginTop="480dp"/>
     
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sync your goals with these third-party applications"
+        android:text="@string/sync_your_goals_with_these_third_party_applications"
         style="@style/DescriptionText"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="430dp"/>
+        android:layout_marginTop="520dp"/>
 
     <ImageButton
         android:id="@+id/spotify_button"
@@ -89,7 +103,7 @@
         android:layout_height="70dp"
         android:background="@drawable/fitbit"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="480dp"/>
+        android:layout_marginTop="570dp"/>
 
     <ImageButton
         android:id="@+id/strava_button"
@@ -97,7 +111,7 @@
         android:layout_height="70dp"
         android:background="@drawable/strava"
         android:layout_marginHorizontal="160dp"
-        android:layout_marginTop="480dp"/>
+        android:layout_marginTop="570dp"/>
 
     <ImageButton
         android:id="@+id/duolingo_button"
@@ -105,7 +119,7 @@
         android:layout_height="70dp"
         android:background="@drawable/duolingo"
         android:layout_marginHorizontal="280dp"
-        android:layout_marginTop="480dp"/>
+        android:layout_marginTop="570dp"/>
 
 
 </RelativeLayout>
