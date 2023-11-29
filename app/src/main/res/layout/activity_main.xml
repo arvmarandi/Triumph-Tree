@@ -8,12 +8,6 @@
 
     <include layout="@layout/app_bar_layout"/>
 
-    <ImageView
-        android:id="@+id/user_tree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/birch_large"
-        android:layout_above="@id/goal_settings"/>
     <Button
             android:id="@+id/new_goal"
             android:text="@string/new_goal"
