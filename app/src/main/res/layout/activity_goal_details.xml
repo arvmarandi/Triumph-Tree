@@ -9,6 +9,20 @@
         android:id="@+id/goalName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"/>
+        style="@style/TitleTheme"
+        />
+
+    <TextView
+        android:id="@+id/goalDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/RegularText"/>
+
+    <TextView
+        android:id="@+id/goalProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/RegularText"/>
+
 
 </LinearLayout>
