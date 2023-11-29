@@ -1,5 +1,6 @@
 package com.example.triumphtree
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
@@ -52,6 +53,10 @@ class GoalList : AppCompatActivity(){
             val selectedGoal = goalsList[position]
             // Handle click on the selected goal, show details, etc.
 
+            // Create an Intent to start the GoalDetailsActivity
+            val intent = Intent(this@GoalList, GoalDetails::class.java)
+            intent.putExtra("selectedGoal", selectedGoal)
+            startActivity(intent)
         }
     }
 
