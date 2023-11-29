@@ -1,6 +1,8 @@
 package com.example.triumphtree
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 
@@ -22,5 +24,19 @@ class GoalDetails : AppCompatActivity() {
 
         val goalProgressTextView: TextView = findViewById(R.id.goalProgress)
         goalProgressTextView.text = "Progress: ${selectedGoal?.days}"
+
+        val deleteButton: Button = findViewById(R.id.deleteButton)
+        deleteButton.setOnClickListener{
+
+
+            val intent = Intent(this@GoalDetails, GoalList::class.java)
+            startActivity(intent)
+        }
+
+        val addProgressButton: Button = findViewById(R.id.addProgressButton)
+        addProgressButton.setOnClickListener{
+
+
+        }
     }
 }
