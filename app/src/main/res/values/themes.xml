@@ -45,4 +45,5 @@
         <item name="colorSecondaryVariant">#FF018786</item>
         <item name="colorOnSecondary">@color/black</item>
     </style>
+
 </resources>
