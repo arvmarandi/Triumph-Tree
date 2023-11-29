@@ -36,4 +36,9 @@ data class GoalModel(
             return arrayOfNulls(size)
         }
     }
+
+    fun addProgress()
+    {
+        days++
+    }
 }

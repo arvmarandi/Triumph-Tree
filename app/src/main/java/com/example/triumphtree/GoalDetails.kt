@@ -38,9 +38,7 @@ class GoalDetails : AppCompatActivity() {
         val addProgressButton: Button = findViewById(R.id.addProgressButton)
         addProgressButton.setOnClickListener{
 
-            if (selectedGoal != null) {
-                addProgress(selectedGoal)
-            }
+            selectedGoal?.addProgress()
 
             if (selectedGoal != null) {
                 saveUpdatedGoal(selectedGoal)
@@ -50,10 +48,6 @@ class GoalDetails : AppCompatActivity() {
 
     }
 
-    private fun addProgress(goalModel: GoalModel)
-    {
-        goalModel.days = goalModel.days + 1
-    }
 
     private fun saveUpdatedGoal(updatedGoal: GoalModel) {
         // Read the current list of goals from SharedPreferences
