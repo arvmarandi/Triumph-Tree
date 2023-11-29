@@ -14,7 +14,7 @@ class GoalDetails : AppCompatActivity() {
         val selectedGoal = intent.getParcelableExtra<GoalModel>("selectedGoal")
 
         // Display the details of the selected goal
-        val goalDetailsTextView: TextView = findViewById(R.id.goalDetailsTextView)
+        val goalDetailsTextView: TextView = findViewById(R.id.goalName)
         goalDetailsTextView.text = "Goal Name: ${selectedGoal?.name}\n" +
                 "Details: ${selectedGoal?.details}\n" +
                 "Progress: ${selectedGoal?.days} days\n"
