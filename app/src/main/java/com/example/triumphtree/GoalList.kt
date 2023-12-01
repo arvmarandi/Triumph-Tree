@@ -3,6 +3,7 @@ package com.example.triumphtree
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -40,11 +41,19 @@ class GoalList : AppCompatActivity(){
 
 
         // Create an array adapter to display the goals in the ListView
-        arrayAdapter = ArrayAdapter(
+        arrayAdapter = object: ArrayAdapter<GoalModel>(
             this,
             android.R.layout.simple_list_item_1,
             goalsList
-        )
+        ){
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                val goalModel = getItem(position)
+                val goalName = goalModel?.name ?: ""
+                (view.findViewById<View>(android.R.id.text1) as TextView).text = goalName
+                return view
+            }
+        }
 
         listView.adapter = arrayAdapter
 
