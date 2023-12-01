@@ -65,7 +65,7 @@ class NewGoal : AppCompatActivity() {
 
         var newGoal = name?.let {
             description?.let {
-                GoalModel(it, description, "null", 0)
+                GoalModel(name, description, "null", 0)
             }
         }
 
