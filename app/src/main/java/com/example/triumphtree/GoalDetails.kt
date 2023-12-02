@@ -29,25 +29,35 @@ class GoalDetails : AppCompatActivity() {
 
         val deleteButton: Button = findViewById(R.id.deleteButton)
         deleteButton.setOnClickListener{
-
-
-            val intent = Intent(this@GoalDetails, GoalList::class.java)
-            startActivity(intent)
+            selectedGoal?.let {
+                deleteGoal(it)
+                val intent = Intent(this@GoalDetails, GoalList::class.java)
+                startActivity(intent)
+            }
         }
 
         val addProgressButton: Button = findViewById(R.id.addProgressButton)
         addProgressButton.setOnClickListener{
 
-            selectedGoal?.addProgress()
-
-            if (selectedGoal != null) {
-                saveUpdatedGoal(selectedGoal)
+            selectedGoal?.let {
+                it.addProgress()
+                saveUpdatedGoal(it)
             }
 
         }
 
     }
 
+    private fun deleteGoal(goalToDelete: GoalModel) {
+        // Read the current list of goals from SharedPreferences
+        val goalsList = readGoalsFromSharedPreferences().toMutableList()
+
+        // Remove the goal to be deleted
+        goalsList.remove(goalToDelete)
+
+        // Save the updated list to SharedPreferences
+        saveGoalsToSharedPreferences(goalsList)
+    }
 
     private fun saveUpdatedGoal(updatedGoal: GoalModel) {
         // Read the current list of goals from SharedPreferences
