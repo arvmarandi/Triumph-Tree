@@ -42,6 +42,9 @@ class GoalDetails : AppCompatActivity() {
             selectedGoal?.let {
                 it.addProgress()
                 saveUpdatedGoal(it)
+
+                // Update the UI to reflect the changes
+                updateUI(selectedGoal)
             }
 
         }
@@ -59,12 +62,18 @@ class GoalDetails : AppCompatActivity() {
         saveGoalsToSharedPreferences(goalsList)
     }
 
+    private fun updateUI(goal: GoalModel) {
+        // Display the updated progress on the page
+        val goalProgressTextView: TextView = findViewById(R.id.goalProgress)
+        goalProgressTextView.text = "Progress: ${goal.days}"
+    }
+
     private fun saveUpdatedGoal(updatedGoal: GoalModel) {
         // Read the current list of goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences().toMutableList()
 
-        // Find the index of the goal to be updated
-        val index = goalsList.indexOfFirst { it == updatedGoal }
+        // Find the index of the goal to be updated based on the name
+        val index = goalsList.indexOfFirst { it.name == updatedGoal.name }
 
         if (index != -1) {
             // Replace the old goal with the updated goal
