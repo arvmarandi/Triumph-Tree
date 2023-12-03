@@ -29,38 +29,51 @@ class GoalDetails : AppCompatActivity() {
 
         val deleteButton: Button = findViewById(R.id.deleteButton)
         deleteButton.setOnClickListener{
-
-
-            val intent = Intent(this@GoalDetails, GoalList::class.java)
-            startActivity(intent)
+            selectedGoal?.let {
+                deleteGoal(it)
+                val intent = Intent(this@GoalDetails, GoalList::class.java)
+                startActivity(intent)
+            }
         }
 
         val addProgressButton: Button = findViewById(R.id.addProgressButton)
         addProgressButton.setOnClickListener{
 
-            if (selectedGoal != null) {
-                addProgress(selectedGoal)
-            }
+            selectedGoal?.let {
+                it.addProgress()
+                saveUpdatedGoal(it)
 
-            if (selectedGoal != null) {
-                saveUpdatedGoal(selectedGoal)
+                // Update the UI to reflect the changes
+                updateUI(selectedGoal)
             }
 
         }
 
     }
 
-    private fun addProgress(goalModel: GoalModel)
-    {
-        goalModel.days = goalModel.days + 1
+    private fun deleteGoal(goalToDelete: GoalModel) {
+        // Read the current list of goals from SharedPreferences
+        val goalsList = readGoalsFromSharedPreferences().toMutableList()
+
+        // Remove the goal to be deleted
+        goalsList.remove(goalToDelete)
+
+        // Save the updated list to SharedPreferences
+        saveGoalsToSharedPreferences(goalsList)
+    }
+
+    private fun updateUI(goal: GoalModel) {
+        // Display the updated progress on the page
+        val goalProgressTextView: TextView = findViewById(R.id.goalProgress)
+        goalProgressTextView.text = "Progress: ${goal.days}"
     }
 
     private fun saveUpdatedGoal(updatedGoal: GoalModel) {
         // Read the current list of goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences().toMutableList()
 
-        // Find the index of the goal to be updated
-        val index = goalsList.indexOfFirst { it == updatedGoal }
+        // Find the index of the goal to be updated based on the name
+        val index = goalsList.indexOfFirst { it.name == updatedGoal.name }
 
         if (index != -1) {
             // Replace the old goal with the updated goal

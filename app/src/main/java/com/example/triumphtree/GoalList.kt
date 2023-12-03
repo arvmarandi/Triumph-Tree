@@ -113,7 +113,6 @@ class GoalList : AppCompatActivity(){
     override fun onDestroy() {
         super.onDestroy()
         Log.d(GL1, "onDestroy")
-        saveGoalsToSharedPreferences()
     }
 
     override fun onResume() {
