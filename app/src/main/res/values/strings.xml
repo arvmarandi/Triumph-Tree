@@ -1,4 +1,6 @@
 <resources>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string name="app_name">TriumphTree</string>
     <string name="pine">Pine</string>
     <string name="birch">Birch</string>

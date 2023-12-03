@@ -10,7 +10,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/triumph_tree_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TriumphTree"
         tools:targetApi="31">
         <activity
             android:name=".GoalDetails"
@@ -42,6 +41,7 @@
             android:theme="@style/NewGoal" />
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.TriumphTree"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

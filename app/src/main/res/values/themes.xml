@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TriumphTree" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TriumphTree" parent="Theme.Material3.DayNight">
         <item name="android:windowBackground">@drawable/mature_sprite_with_bg</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/light_green</item>
