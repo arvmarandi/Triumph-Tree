@@ -67,7 +67,20 @@ class MainActivity : AppCompatActivity() {
                     drawerID.closeDrawer(GravityCompat.START)
                     true
                 }
-                // Add other menu item cases as needed
+
+                R.id.goal_list -> {
+                    // Handle button click
+                    val goalList = findViewById<Button>(R.id.goal_list)
+                    goalList.setOnClickListener{
+                        val intent = Intent(this, GoalList::class.java)
+                        startActivity(intent)
+                    }
+
+                    drawerID.closeDrawer(GravityCompat.START)
+                    true
+                }
+
+
                 else -> false
             }
 
@@ -82,16 +95,9 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         val goalSettings = findViewById<Button>(R.id.goal_settings)
         goalSettings.setOnClickListener {
             val intent = Intent(this, GoalSettings::class.java)
-            startActivity(intent)
-        }
-
-        val goalList = findViewById<Button>(R.id.goal_list)
-        goalList.setOnClickListener{
-            val intent = Intent(this, GoalList::class.java)
             startActivity(intent)
         }
 

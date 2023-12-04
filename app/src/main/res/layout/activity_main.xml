@@ -23,14 +23,6 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"/>
 
-        <Button
-            android:id="@+id/goal_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_alignBaseline="@+id/goal_settings"
-            android:text="@string/goal_list"/>
-
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
