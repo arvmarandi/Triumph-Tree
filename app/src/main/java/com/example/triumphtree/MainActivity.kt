@@ -56,10 +56,9 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener { menuItem ->
             val position = items.indexOf(menuItem)
-            val selectedGoal = temp[position - 2]
+
 
             Log.d(MA1, "Current position, $position")
-            Log.d(MA1, "Selected goal, $selectedGoal")
 
             when (position) {
                 0 -> {
@@ -77,6 +76,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 else -> {
+                    val selectedGoal = temp[position - 2]
+                    Log.d(MA1, "Selected goal, $selectedGoal")
                     val intent = Intent(this@MainActivity, GoalDetails::class.java)
                     intent.putExtra("selectedGoal", selectedGoal)
                     startActivity(intent)
