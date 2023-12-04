@@ -55,15 +55,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         navView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.new_goal -> {
+            val position = items.indexOf(menuItem)
+            val selectedGoal = temp[position - 2]
+
+            Log.d(MA1, "Current position, $position")
+            Log.d(MA1, "Selected goal, $selectedGoal")
+
+            when (position) {
+                0 -> {
                     val intent = Intent(this, NewGoal::class.java)
                     startActivity(intent)
                     drawerID.closeDrawer(GravityCompat.START)
                     true
                 }
 
-                R.id.goal_list -> {
+                1 -> {
                     val intent = Intent(this, GoalList::class.java)
                     startActivity(intent)
                     drawerID.closeDrawer(GravityCompat.START)
@@ -71,21 +77,13 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 else -> {
-                    // The default case for handling other menu items
-                    val position = items.indexOf(menuItem)
-                    if (position != -1) {
-                        val selectedGoal = temp[position]
-                        val intent = Intent(this@MainActivity, GoalDetails::class.java)
-                        intent.putExtra("selectedGoal", selectedGoal)
-                        startActivity(intent)
-                    }
-                    drawerID.closeDrawer(GravityCompat.START)
+                    val intent = Intent(this@MainActivity, GoalDetails::class.java)
+                    intent.putExtra("selectedGoal", selectedGoal)
+                    startActivity(intent)
                     true
                 }
             }
         }
-
-
 
         val goalSettings = findViewById<Button>(R.id.goal_settings)
         goalSettings.setOnClickListener {
