@@ -1,7 +1,9 @@
 package com.example.triumphtree
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -9,22 +11,12 @@ import android.widget.TextView
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 
+const val GD1 = "GoalDetails Progress"
 class GoalDetails : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goal_details)
-
-        val treeLayout : LinearLayout = findViewById(R.id.goal_details)
-
-        treeLayout.setBackgroundResource(R.drawable.settings_drawable)
-
-
-
-
-
-
-
 
         // Retrieve the selected goal from the Intent
         val selectedGoal = intent.getParcelableExtra<GoalModel>("selectedGoal")
@@ -42,6 +34,9 @@ class GoalDetails : AppCompatActivity() {
         val goalCompletionTextView: TextView = findViewById(R.id.goal_threshold)
         goalCompletionTextView.text = "Threshold: ${selectedGoal?.threshold}"
 
+        val treeLayout: LinearLayout = findViewById(R.id.goal_details)
+        val background: Int = selectedGoal?.let { calculateBackground(it.days, selectedGoal.threshold) }!!
+        treeLayout.setBackgroundResource(background)
 
         val deleteButton: Button = findViewById(R.id.deleteButton)
         deleteButton.setOnClickListener{
@@ -66,6 +61,22 @@ class GoalDetails : AppCompatActivity() {
 
     }
 
+    private fun calculateBackground(completed: Int, threshold: Int): Int{
+        if (threshold == 0) {
+            return R.drawable.sapling_sprite_with_bg
+        }
+        val progress: Double = (completed.toDouble() / threshold.toDouble())
+        return if (progress <= 0.25) {
+            R.drawable.sapling_sprite_with_bg
+        } else if (progress <= 0.5) {
+            R.drawable.small_medium_sprite_with_bg
+        } else if (progress <= 0.75) {
+            R.drawable.mature_sprite_with_bg
+        } else {
+            R.drawable.large_sprite_with_bg
+        }
+    }
+
     private fun deleteGoal(goalToDelete: GoalModel) {
         // Read the current list of goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences().toMutableList()
@@ -81,6 +92,9 @@ class GoalDetails : AppCompatActivity() {
         // Display the updated progress on the page
         val goalProgressTextView: TextView = findViewById(R.id.goalProgress)
         goalProgressTextView.text = "Progress: ${goal.days}"
+        val treeLayout: LinearLayout = findViewById(R.id.goal_details)
+        val background: Int = goal?.let { calculateBackground(it.days, goal.threshold) }!!
+        treeLayout.setBackgroundResource(background)
     }
 
     private fun saveUpdatedGoal(updatedGoal: GoalModel) {
