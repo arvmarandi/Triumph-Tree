@@ -61,6 +61,7 @@
         android:layout_marginTop="300dp"/>
 
     <EditText
+        android:id="@+id/completion_text"
         android:layout_width="70dp"
         android:layout_height="40dp"
         android:layout_marginHorizontal="250dp"

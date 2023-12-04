@@ -3,6 +3,7 @@ package com.example.triumphtree
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
@@ -13,6 +14,17 @@ class GoalDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goal_details)
+
+        val treeLayout : LinearLayout = findViewById(R.id.goal_details)
+
+        treeLayout.setBackgroundResource(R.drawable.settings_drawable)
+
+
+
+
+
+
+
 
         // Retrieve the selected goal from the Intent
         val selectedGoal = intent.getParcelableExtra<GoalModel>("selectedGoal")
@@ -26,6 +38,10 @@ class GoalDetails : AppCompatActivity() {
 
         val goalProgressTextView: TextView = findViewById(R.id.goalProgress)
         goalProgressTextView.text = "Progress: ${selectedGoal?.days}"
+
+        val goalCompletionTextView: TextView = findViewById(R.id.goal_threshold)
+        goalCompletionTextView.text = "Threshold: ${selectedGoal?.threshold}"
+
 
         val deleteButton: Button = findViewById(R.id.deleteButton)
         deleteButton.setOnClickListener{
@@ -42,7 +58,6 @@ class GoalDetails : AppCompatActivity() {
             selectedGoal?.let {
                 it.addProgress()
                 saveUpdatedGoal(it)
-
                 // Update the UI to reflect the changes
                 updateUI(selectedGoal)
             }

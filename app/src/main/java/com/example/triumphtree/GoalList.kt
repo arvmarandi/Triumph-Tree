@@ -39,7 +39,6 @@ class GoalList : AppCompatActivity(){
         // Read goals from SharedPreferences
         val goalsList = readGoalsFromSharedPreferences()
 
-
         // Create an array adapter to display the goals in the ListView
         arrayAdapter = object: ArrayAdapter<GoalModel>(
             this,
@@ -68,7 +67,6 @@ class GoalList : AppCompatActivity(){
             startActivity(intent)
         }
     }
-
 
     private fun saveGoalsToSharedPreferences()
     {
