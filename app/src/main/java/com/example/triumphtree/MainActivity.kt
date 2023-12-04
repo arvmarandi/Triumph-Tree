@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.core.view.iterator
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -54,6 +55,22 @@ class MainActivity : AppCompatActivity() {
         }
 
         navView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.new_goal -> {
+                    // Handle button click
+                    val newGoal = findViewById<Button>(R.id.new_goal)
+                    newGoal.setOnClickListener {
+                        val intent = Intent(this, NewGoal::class.java)
+                        startActivity(intent)
+                    }
+
+                    drawerID.closeDrawer(GravityCompat.START)
+                    true
+                }
+                // Add other menu item cases as needed
+                else -> false
+            }
+
             val position = items.indexOf(menuItem)
             val selectedGoal = temp[position]
 
@@ -64,11 +81,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        val newGoal = findViewById<Button>(R.id.new_goal)
-        newGoal.setOnClickListener {
-            val intent = Intent(this, NewGoal::class.java)
-            startActivity(intent)
-        }
+
 
         val goalSettings = findViewById<Button>(R.id.goal_settings)
         goalSettings.setOnClickListener {
