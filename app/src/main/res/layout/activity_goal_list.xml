@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".GoalList">
 
+
     <ListView
         android:id="@+id/goalListView"
         android:layout_width="match_parent"
