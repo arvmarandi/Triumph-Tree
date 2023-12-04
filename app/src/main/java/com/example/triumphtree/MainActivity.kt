@@ -57,42 +57,34 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.new_goal -> {
-                    // Handle button click
-                    val newGoal = findViewById<Button>(R.id.new_goal)
-                    newGoal.setOnClickListener {
-                        val intent = Intent(this, NewGoal::class.java)
-                        startActivity(intent)
-                    }
-
+                    val intent = Intent(this, NewGoal::class.java)
+                    startActivity(intent)
                     drawerID.closeDrawer(GravityCompat.START)
                     true
                 }
 
                 R.id.goal_list -> {
-                    // Handle button click
-                    val goalList = findViewById<Button>(R.id.goal_list)
-                    goalList.setOnClickListener{
-                        val intent = Intent(this, GoalList::class.java)
-                        startActivity(intent)
-                    }
-
+                    val intent = Intent(this, GoalList::class.java)
+                    startActivity(intent)
                     drawerID.closeDrawer(GravityCompat.START)
                     true
                 }
 
-
-                else -> false
+                else -> {
+                    // The default case for handling other menu items
+                    val position = items.indexOf(menuItem)
+                    if (position != -1) {
+                        val selectedGoal = temp[position]
+                        val intent = Intent(this@MainActivity, GoalDetails::class.java)
+                        intent.putExtra("selectedGoal", selectedGoal)
+                        startActivity(intent)
+                    }
+                    drawerID.closeDrawer(GravityCompat.START)
+                    true
+                }
             }
-
-            val position = items.indexOf(menuItem)
-            val selectedGoal = temp[position]
-
-            val intent = Intent(this@MainActivity, GoalDetails::class.java)
-            intent.putExtra("selectedGoal", selectedGoal)
-            startActivity(intent)
-
-            true
         }
+
 
 
         val goalSettings = findViewById<Button>(R.id.goal_settings)
