@@ -13,15 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-<!--        <Button-->
         <TextView
             style="@style/TestText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
-            android:text="Triumph Tree" />
+            android:text="@string/triumph_tree" />
+
+        <Button
+            android:id="@+id/show_popup_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tutorial"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="175dp"/>
 
         <!--        <Button-->
 

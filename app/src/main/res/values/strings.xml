@@ -32,5 +32,12 @@
     <string name="delete_goal">Delete Goal</string>
     <string name="sync_your_goals_with_these_third_party_applications">Sync your goals with these third-party applications</string>
     <string name="notification_frequency">Notification Frequency</string>
-    <string name="my_goals">My Goals</string>r
+    <string name="my_goals">My Goals</string>
+    <string name="triumph_tree">Triumph Tree</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="how_to_add_a_new_goal">How to add a new goal</string>
+    <string name="_1_navigate_to_the_sidebar">1. Navigate to the sidebar</string>
+    <string name="_2_press_on_the_new_goal_button">2. Press on the \'New Goal\' Button</string>
+    <string name="_3_input_your_goal_information">3. Input your goal information</string>
+    <string name="_4_voila_you_have_a_new_goal">4. Voila! You have a new goal 😊</string>r
 </resources>
