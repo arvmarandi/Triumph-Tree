@@ -51,6 +51,10 @@ class MainActivity : AppCompatActivity() {
 
         for (i in menu.iterator()) {
             items.add(i)
+
+            if (i.title != "New Goal") {
+                i.setIcon(R.drawable.triumph_tree_foreground)
+            }
             Log.d(MA1, "$i")
         }
 
@@ -68,15 +72,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                1 -> {
-                    val intent = Intent(this, GoalList::class.java)
-                    startActivity(intent)
-                    drawerID.closeDrawer(GravityCompat.START)
-                    true
-                }
-
                 else -> {
-                    val selectedGoal = temp[position - 2]
+                    val selectedGoal = temp[position - 1]
                     Log.d(MA1, "Selected goal, $selectedGoal")
                     val intent = Intent(this@MainActivity, GoalDetails::class.java)
                     intent.putExtra("selectedGoal", selectedGoal)
@@ -128,15 +125,4 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.app_bar, menu)
-        return true
-
-//        val settingsButton = findViewById<Button>(R.id.settings_button)
-//        settingsButton.setOnClickListener {
-//            val intent = Intent(this, SettingsMenu::class.java)
-//            startActivity(intent)
-//        }
-    }
 }
