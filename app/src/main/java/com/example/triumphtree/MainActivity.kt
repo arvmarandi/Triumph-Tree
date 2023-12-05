@@ -108,10 +108,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (toggle.onOptionsItemSelected(item)) {
-            true
-        } else super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.action_goal_settings -> {
+                val intent = Intent(this, GoalSettings::class.java)
+                startActivity(intent)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
