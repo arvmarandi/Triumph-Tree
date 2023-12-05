@@ -1,14 +1,18 @@
 package com.example.triumphtree
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.reflect.TypeToken
 import com.google.gson.Gson
 
@@ -39,11 +43,20 @@ class GoalDetails : AppCompatActivity() {
         val background: Int = selectedGoal?.let { calculateBackground(it.days, selectedGoal.threshold) }!!
         treeLayout.setBackgroundResource(background)
 
+        val progBar: ProgressBar = findViewById(R.id.progressBar)
+        progBar.max = selectedGoal.threshold
+        progBar.progress = selectedGoal.days
+
+        val progressColor = ContextCompat.getColor(this, R.color.beige)
+        progBar.indeterminateDrawable.setColorFilter(progressColor, PorterDuff.Mode.SRC_IN)
+        progBar.progressDrawable.setColorFilter(progressColor, PorterDuff.Mode.SRC_IN)
+
+
         val deleteButton: Button = findViewById(R.id.deleteButton)
         deleteButton.setOnClickListener{
             selectedGoal?.let {
                 deleteGoal(it)
-                val intent = Intent(this@GoalDetails, GoalList::class.java)
+                val intent = Intent(this@GoalDetails, MainActivity::class.java)
                 startActivity(intent)
             }
         }
@@ -96,6 +109,9 @@ class GoalDetails : AppCompatActivity() {
         val treeLayout: LinearLayout = findViewById(R.id.goal_details)
         val background: Int = goal?.let { calculateBackground(it.days, goal.threshold) }!!
         treeLayout.setBackgroundResource(background)
+        // Update the progress of the ProgressBar
+        val progBar: ProgressBar = findViewById(R.id.progressBar)
+        progBar.progress = goal.days
     }
 
     private fun saveUpdatedGoal(updatedGoal: GoalModel) {
