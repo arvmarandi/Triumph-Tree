@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ProgressBar
@@ -50,7 +51,6 @@ class GoalDetails : AppCompatActivity() {
         val progressColor = ContextCompat.getColor(this, R.color.beige)
         progBar.indeterminateDrawable.setColorFilter(progressColor, PorterDuff.Mode.SRC_IN)
         progBar.progressDrawable.setColorFilter(progressColor, PorterDuff.Mode.SRC_IN)
-
 
         val deleteButton: Button = findViewById(R.id.deleteButton)
         deleteButton.setOnClickListener{
@@ -161,6 +161,19 @@ class GoalDetails : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.app_bar, menu)
         return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_goal_settings -> {
+                val selectedGoal = intent.getParcelableExtra<GoalModel>("selectedGoal")
+                val intent = Intent(this@GoalDetails, GoalSettings::class.java)
+                intent.putExtra("selectedGoal", selectedGoal)
+                startActivity(intent)
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }
