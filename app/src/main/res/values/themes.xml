@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.TriumphTree" parent="Theme.Material3.DayNight">
-        <item name="android:windowBackground">@drawable/mature_sprite_with_bg</item>
+        <item name="android:windowBackground">@drawable/grassy_hill_background</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/light_green</item>
         <item name="colorPrimaryVariant">@color/dark_green</item>

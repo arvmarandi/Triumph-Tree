@@ -19,4 +19,11 @@
         <item name="android:textColor">@color/bg1</item>
         <item name="fontFamily">@font/garamound</item>
     </style>
+
+    <style name="TestText">
+        <item name="android:textSize">56sp</item>
+        <item name="android:textColor">@color/bg1</item>
+        <item name="fontFamily">@font/garamound</item>
+        <item name="itemTextAppearanceActiveBoldEnabled">true</item>
+    </style>
 </resources>

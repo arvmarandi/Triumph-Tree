@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -138,6 +139,12 @@ class GoalDetails : AppCompatActivity() {
         // Save the JSON string to SharedPreferences
         editor.putString("GoalsList", jsonGoalsList)
         editor.apply()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.app_bar, menu)
+        return true
     }
 
 }

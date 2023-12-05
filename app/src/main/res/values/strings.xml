@@ -30,5 +30,6 @@
     <string name="home_page">Home Page</string>
     <string name="add_progress">Add Progress</string>
     <string name="delete_goal">Delete Goal</string>
-    <string name="sync_your_goals_with_these_third_party_applications">Sync your goals with these third-party applications</string>r
+    <string name="sync_your_goals_with_these_third_party_applications">Sync your goals with these third-party applications</string>
+    <string name="notification_frequency">Notification Frequency</string>r
 </resources>

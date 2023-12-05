@@ -86,11 +86,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val goalSettings = findViewById<Button>(R.id.goal_settings)
-        goalSettings.setOnClickListener {
-            val intent = Intent(this, GoalSettings::class.java)
-            startActivity(intent)
-        }
+//        val goalSettings = findViewById<Button>(R.id.goal_settings)
+//        goalSettings.setOnClickListener {
+//            val intent = Intent(this, GoalSettings::class.java)
+//            startActivity(intent)
+//        }
 
     }
 
@@ -113,15 +113,4 @@ class MainActivity : AppCompatActivity() {
         } else super.onOptionsItemSelected(item)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.app_bar, menu)
-        return true
-
-//        val settingsButton = findViewById<Button>(R.id.settings_button)
-//        settingsButton.setOnClickListener {
-//            val intent = Intent(this, SettingsMenu::class.java)
-//            startActivity(intent)
-//        }
-    }
 }
