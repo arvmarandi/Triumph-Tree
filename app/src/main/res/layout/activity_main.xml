@@ -13,15 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/goal_settings"
-            android:text="@string/goal_settings"
+        <TextView
+            style="@style/TestText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"/>
+            android:text="Triumph Tree" />
+
+        <!--        <Button-->
+<!--            android:id="@+id/goal_settings"-->
+<!--            android:text="@string/goal_settings"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_alignParentBottom="true"/>-->
 
     </RelativeLayout>
 

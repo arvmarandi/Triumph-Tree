@@ -7,12 +7,14 @@ data class GoalModel(
     val name: String,
     val details: String,
     val emblem: String,
+    val threshold: Int,
     var days: Int
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
+        parcel.readInt(),
         parcel.readInt()
     )
 
@@ -20,6 +22,7 @@ data class GoalModel(
         parcel.writeString(name)
         parcel.writeString(details)
         parcel.writeString(emblem)
+        parcel.writeInt(threshold)
         parcel.writeInt(days)
     }
 
