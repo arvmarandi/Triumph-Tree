@@ -86,11 +86,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val goalSettings = findViewById<Button>(R.id.goal_settings)
-        goalSettings.setOnClickListener {
-            val intent = Intent(this, GoalSettings::class.java)
-            startActivity(intent)
-        }
+//        val goalSettings = findViewById<Button>(R.id.goal_settings)
+//        goalSettings.setOnClickListener {
+//            val intent = Intent(this, GoalSettings::class.java)
+//            startActivity(intent)
+//        }
 
     }
 
