@@ -105,9 +105,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (toggle.onOptionsItemSelected(item)) {
-            true
-        } else super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.action_goal_settings -> {
+                openGoalSettings()
+                true
+            }
+            else -> {
+                if (toggle.onOptionsItemSelected(item)) {
+                    true
+                } else {
+                    super.onOptionsItemSelected(item)
+                }
+            }
+        }
+    }
+
+    private fun openGoalSettings() {
+        val intent = Intent(this, GoalSettings::class.java)
+        startActivity(intent)
     }
 
 }
